@@ -1,8 +1,14 @@
 name: Share data between jobs
 
-on: [push]
-
-workflow_dispatch
+on: 
+  pull_request: 
+    branches: ["main"]
+  workflow_dispatch:
+    inputs:
+      adresa:
+        description: full locationa please
+        required: false
+    
 
 jobs:
   job_1:
