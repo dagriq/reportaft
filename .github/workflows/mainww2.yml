@@ -12,6 +12,15 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      numele:
+        description: trebuie sa te predai, cum te cheama
+        required: true
+        default: Gogu din Bacaloglu
+
+      tara-ta:
+        description: de unde vii pe unde pleci
+        required: false
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +39,7 @@ jobs:
         run: exit 1
       - name: ww2.Run s23
         run: |
-          echo Add s2other actions to build, ${{ github.event.inputs.tara }} pt tara ta
+          echo Add s2other actions to build, ${{ github.event.inputs.tara-ta }} pt tara ta
           echo test, s3and deploy your project. ${{ github.event.inputs.numele }} pt numele tau
       - name: pompieru-pt-fail
         if: ${{ failure() }}
